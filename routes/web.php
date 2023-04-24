@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Categories;
 use App\Models\Category;
 use App\Models\Post;
@@ -21,8 +22,9 @@ use App\Models\User;
 
 
 
+Route::get('/',[PostController::class,'index']);
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     \Illuminate\Support\Facades\DB::listen(function($query){
         logger($query->sql);
     });
@@ -32,7 +34,7 @@ Route::get('/', function () {
         'categories' =>Category::all()
 
     ]);
-});
+});*/
 
 Route::get('posts/{post:slug}', function(Post $post) {
 

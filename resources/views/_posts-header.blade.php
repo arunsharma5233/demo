@@ -19,7 +19,25 @@
             {{-- helo --}}
       
         <x-dropdown>
+            <x-slot name="trigger">
+            </x-slot>
+
+
+
+
+            <a href="/"
+            class="block text-left px-3 hover:bg-blue-500 hover:text-white">All</a>
+         
+        @foreach ($categories as $category )
+        <a href="/categories/{{$category->slug}}"
+            class="block text-left px-3 
+            hover:bg-blue-500 hover:text-white
+            {{isset($currentCategory)&& $currentCategory->is($category) ? 'bg-green-500 text-white ' :''}}
             
+            ">
+            {{ucwords($category->name)}}</a>
+            
+        @endforeach
         </x-dropdown>
 
 
